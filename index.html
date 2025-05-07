@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>App de Gráficos Dinámicos</title>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>App de Gráficos Dinámicos</h1>
+
+    <!-- Selección de tipo de fuente de datos -->
+    <div class="input-group">
+      <label>Fuente de datos:</label>
+      <select id="fuenteSelect">
+        <option value="archivo">Archivo (CSV/JSON)</option>
+        <option value="api">API Externa</option>
+      </select>
+    </div>
+
+    <!-- Entrada de archivo -->
+    <div id="archivoGroup" class="input-group">
+      <input type="file" id="archivoInput" accept=".csv, .json" />
+    </div>
+
+    <!-- Entrada de API -->
+    <div id="apiGroup" class="input-group hidden">
+      <input type="url" id="apiInput" placeholder="https://api.ejemplo.com/datos" />
+      <button id="cargarApiBtn">Cargar API</button>
+    </div>
+
+    <!-- Selección de tipo de gráfico -->
+    <div class="input-group">
+      <label>Tipo de gráfico:</label>
+      <select id="tipoGraficoSelect">
+        <option value="pie">Pastel</option>
+        <option value="doughnut">Doughnut</option>
+        <option value="bar">Barras</option>
+        <option value="line">Línea</option>
+      </select>
+    </div>
+
+    <!-- para exportación -->
+    <div class="input-group">
+      <button id="exportImageBtn">Exportar Imagen</button>
+      <button id="exportPdfBtn">Exportar PDF</button>
+    </div>
+
+    <!-- Cavas para el gráfico -->
+    <canvas id="graficoCanvas" width="600" height="400"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
